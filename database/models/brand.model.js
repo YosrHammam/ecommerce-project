@@ -8,12 +8,13 @@ const brandSchema = new Schema({
     },
     logo: {
         type: String,
-        required:true
+        required: true
     },
     slug: {
         type: String,
         lowercase: true
     }
-})
+},
+    { timestamps: true })
 const brandModel = mongoose.model('brand', brandSchema)
 export default brandModel

@@ -24,8 +24,21 @@ const userSchema = new Schema({
         type: Boolean,
         default: false
     },
-    role:{enum:['admin','user']},
-    wishList:{type:[String]}
-})
+    role: {
+        type: String,
+        enum: ['admin', 'user']
+    },
+    // profileImg:{
+    //     type:String
+    // },
+    // phone:{type:String},
+    isActive: {
+        type: Boolean,
+        default: true
+    },
+    wishList:
+        { type: [String] }
+},
+    { timestamps: true })
 const userModel = mongoose.model('user', userSchema);
 export default userModel

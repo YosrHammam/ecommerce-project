@@ -1,20 +1,25 @@
 import mongoose, { Schema, model } from "mongoose";
 const reviewSchema = new Schema({
     text: {
-        type: String
+        type: String,
+        trim:true
     },
-    rate:{
-        type:String
+    rate: {
+        type:Number,
+        enum:[1,2,3,4,5]
     },
-    productId: {
+    product: {
         type: Schema.ObjectId,
-        ref: 'product'
+        ref: 'product',
+        required:true
     },
-    userId: {
+    user: {
         type: Schema.ObjectId,
         ref: 'user'
+        ,
+        required:true
     }
 
-},{timestamps:true})
+}, { timestamps: true })
 const reviewModel = mongoose.model('review', reviewSchema);
 export default reviewModel 

@@ -9,5 +9,10 @@ await category.save()
 res.status(201).json({message:"success",category})
 
 }
+const getAllCategories =async(req,res,next)=>{
+let categories =await categoryModel.find()
+res.status(201).json({message:'this all categories ',categories})
+}
 export{addCategory
-,}
+,getAllCategories
+}
